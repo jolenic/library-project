@@ -6,6 +6,7 @@ import com.libraryproject.model.FakeLoan;
 import com.libraryproject.model.Guest;
 
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Test {
     public static void main(String args[]) {
@@ -24,12 +25,46 @@ public class Test {
                     for (Book book : db.getBookList()) {
                         System.out.println(book.toString());
                     }
+                    System.out.println("\nAdd new book? 1: Yes, 2: No");
+                    response = input.nextInt();
+                    switch (response) {
+                        case 1:
+                            input.nextLine();
+                            System.out.println("New Title: ");
+                            String newTitle = input.nextLine();
+                            System.out.println("New Author: ");
+                            String newAuthor = input.nextLine();
+                            db.getBookList().add(new Book(UUID.randomUUID(), newTitle, newAuthor));
+                            System.out.println("New book added to library.");
+                            break;
+                        case 2:
+                            break;
+                    }
                     System.out.println("\n\n");
                     break;
                 case 2:
                     System.out.println("\nGuests:");
                     for (Guest guest : db.getGuestList()) {
                         System.out.println(guest.toString());
+                    }
+                    System.out.println("\nAdd new guest? 1: Yes, 2: No");
+                    response = input.nextInt();
+                    switch (response) {
+                        case 1:
+                            input.nextLine();
+                            System.out.println("First Name: ");
+                            String fn = input.nextLine();
+                            System.out.println("Last Name: ");
+                            String ln = input.nextLine();
+                            System.out.println("Email: ");
+                            String email = input.nextLine();
+                            System.out.println("Phone Number: ");
+                            String phone = input.nextLine();
+                            db.getGuestList().add(new Guest(UUID.randomUUID(), fn, ln, email, phone));
+                            System.out.println("New guest added to library.");
+                            break;
+                        case 2:
+                            break;
                     }
                     System.out.println("\n\n");
                     break;
