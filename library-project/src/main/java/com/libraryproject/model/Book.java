@@ -36,4 +36,8 @@ public class Book {
         this.title = title;
         this.author = author;
     }
+
+    public String toString() {
+       return "Title: "+ title + ", Author: " + author;
+    }
 }

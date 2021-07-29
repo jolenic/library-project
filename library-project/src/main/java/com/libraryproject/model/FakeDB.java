@@ -1,25 +1,36 @@
-package com.libraryproject;
+package com.libraryproject.model;
 
-import com.libraryproject.model.Book;
-import com.libraryproject.model.FakeLoan;
-import com.libraryproject.model.Guest;
-import com.libraryproject.model.Loan;
-import org.thymeleaf.util.DateUtils;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class FakeDB {
 
     //declare variables
     private static FakeDB fakeDB = null;
-    private List<Book> bookList = null;
-    private List<Guest> guestList = null;
-    private List<FakeLoan> loanList = null;
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public List<Guest> getGuestList() {
+        return guestList;
+    }
+
+    public List<FakeLoan> getLoanList() {
+        return loanList;
+    }
+
+    private List<Book> bookList = new ArrayList<>();
+    private List<Guest> guestList = new ArrayList<>();
+    private List<FakeLoan> loanList = new ArrayList<>();
 
     private Calendar cal = Calendar.getInstance();
+
+    public static FakeDB getFakeDB(){
+        if (fakeDB == null) {
+            fakeDB = new FakeDB();
+        }
+        return fakeDB;
+    }
 
     private FakeDB(){
         //generate fake DB data

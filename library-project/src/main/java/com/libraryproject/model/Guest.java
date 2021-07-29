@@ -58,4 +58,8 @@ public class Guest {
         this.email_address = email_address;
         this.phone_number = phone_number;
     }
+
+    public String toString(){
+        return "Name: " + first_name + " " + last_name + ", Email: " + email_address + ", Phone: " + phone_number;
+    }
 }

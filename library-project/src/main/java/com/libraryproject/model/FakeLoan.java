@@ -65,4 +65,9 @@ public class FakeLoan {
         this.due_date = cal.getTime();
     }
 
+    public String toString() {
+        return "Book: " + book.getTitle() + ", Guest: " + guest.getFirstName() + " " + guest.getLastName() +
+                "\nCheckout: " + checkout + ", Due: " + due_date + ", Returned: " + return_date;
+    }
+
 }
